@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 use clap::ValueEnum;
 use enum_iterator::Sequence;
 use std::fs;
@@ -7,7 +8,6 @@ pub mod epub_export;
 pub mod pdf_export;
 pub mod txt_export;
 
-// SPDX-License-Identifier: MIT
 use crate::models::issue::Issue;
 use crate::phrack_issue_manager_error::PhrackIssueManagerError;
 
@@ -20,7 +20,6 @@ pub enum ExportFormat {
     EPUB,
 }
 pub struct ExportOptions {
-    // Output folder for the exported file
     pub output_folder: PathBuf,
     pub issues_folder: PathBuf,
 }
