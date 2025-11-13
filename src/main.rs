@@ -148,6 +148,7 @@ async fn main() {
         Commands::ExportIssue(args) => {
             let options = ExportOptions {
                 output_folder: args.output_folder.clone(),
+                issues_folder: config.download_path().clone(),
             };
 
             let exporter = match args.format {
@@ -155,8 +156,19 @@ async fn main() {
             };
 
             if args.all_issues {
+                println!(
+                    "Exporting all issues to {} as {}",
+                    &options.output_folder.display(),
+                    format!("{:?}", args.format).to_lowercase()
+                );
                 exporter.export_all(&options).ok();
             } else if let Some(issue) = args.issue {
+                println!(
+                    "Exporting issue {} to {} as {}",
+                    issue,
+                    &options.output_folder.display(),
+                    format!("{:?}", args.format).to_lowercase()
+                );
                 exporter.export(issue.into(), &options).ok();
             }
         }

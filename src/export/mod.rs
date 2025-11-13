@@ -1,5 +1,6 @@
 use clap::ValueEnum;
 use enum_iterator::Sequence;
+use std::fs;
 use std::path::PathBuf;
 
 pub mod txt_export;
@@ -17,6 +18,7 @@ pub enum ExportFormat {
 pub struct ExportOptions {
     // Output folder for the exported file
     pub output_folder: PathBuf,
+    pub issues_folder: PathBuf,
 }
 
 pub trait Exporter {
@@ -26,4 +28,23 @@ pub trait Exporter {
             .try_for_each(|issue| self.export(issue, options))
     }
     fn export(&self, issue: Issue, options: &ExportOptions) -> Result<(), PhrackIssueManagerError>;
+
+    fn get_article_paths(
+        &self,
+        issue: &Issue,
+        options: &ExportOptions,
+    ) -> Result<Vec<PathBuf>, PhrackIssueManagerError> {
+        let issue_path = options
+            .issues_folder
+            .join(format!("{}", issue.issue_number));
+
+        let mut articles: Vec<_> = fs::read_dir(&issue_path)?
+            .filter_map(|e| e.ok())
+            .filter(|e| e.path().extension().map_or(false, |ext| ext == "txt"))
+            .map(|e| e.path())
+            .collect();
+
+        articles.sort();
+        Ok(articles)
+    }
 }

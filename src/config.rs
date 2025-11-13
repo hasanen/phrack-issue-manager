@@ -46,7 +46,7 @@ fn user_dir() -> PathBuf {
 }
 
 fn config_dir() -> PathBuf {
-    user_dir().join(".config/phrack-downloader")
+    user_dir().join(".config/phrack-issue-managaer")
 }
 
 fn config_path() -> PathBuf {
