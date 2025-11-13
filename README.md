@@ -132,5 +132,7 @@ For more details, see the [Conventional Commits documentation](https://www.conve
 ## TODO:
 
 - [ ] Implement commands in "Commands TBD"
+- [ ] Implement support for exporting PDF
+- [ ] Implement support for exporting EPUB
 - [ ] Add GH Actions to check the build
 - [ ] Add GH action to publish build to crates.io
