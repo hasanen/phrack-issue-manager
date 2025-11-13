@@ -3,6 +3,7 @@ use enum_iterator::Sequence;
 use std::fs;
 use std::path::PathBuf;
 
+pub mod pdf_export;
 pub mod txt_export;
 
 // SPDX-License-Identifier: MIT
@@ -14,6 +15,7 @@ use crate::phrack_issue_manager_error::PhrackIssueManagerError;
 pub enum ExportFormat {
     #[value(alias = "text")]
     TXT,
+    PDF,
 }
 pub struct ExportOptions {
     // Output folder for the exported file

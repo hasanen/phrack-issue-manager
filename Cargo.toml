@@ -9,6 +9,7 @@ comfy-table = "7.2.1"
 directories-next = "2.0.0"
 enum-iterator = "2.3.0"
 futures = "0.3.31"
+genpdf = "0.2.0"
 regex = "1.11.2"
 reqwest = { version = "0.12.23", features = ["json", "rustls-tls"] }
 scraper = "0.24.0"

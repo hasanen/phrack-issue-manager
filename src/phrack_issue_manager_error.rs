@@ -14,4 +14,6 @@ pub enum PhrackIssueManagerError {
     Toml(#[from] toml::ser::Error),
     #[error("TOML deserialization error: {0}")]
     TomlDe(#[from] toml::de::Error),
+    #[error("PDF generation error: {0}")]
+    GenPdf(#[from] genpdf::error::Error),
 }

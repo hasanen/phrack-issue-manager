@@ -18,6 +18,7 @@ mod phrack_issue_manager_error;
 mod strict_string;
 use crate::config::{ConfigKey, load_config, save_config};
 use crate::downloader::Downloader;
+use crate::export::pdf_export::PDFExporter;
 use crate::export::txt_export::TxtExporter;
 use crate::export::{ExportFormat, ExportOptions, Exporter};
 use crate::phrack_issue_manager_error::PhrackIssueManagerError;
@@ -151,8 +152,9 @@ async fn main() {
                 issues_folder: config.download_path().clone(),
             };
 
-            let exporter = match args.format {
-                ExportFormat::TXT => TxtExporter,
+            let exporter: Box<dyn Exporter> = match args.format {
+                ExportFormat::TXT => Box::new(TxtExporter),
+                ExportFormat::PDF => Box::new(PDFExporter),
             };
 
             if args.all_issues {
@@ -161,7 +163,10 @@ async fn main() {
                     &options.output_folder.display(),
                     format!("{:?}", args.format).to_lowercase()
                 );
-                exporter.export_all(&options).ok();
+                if let Err(e) = exporter.export_all(&options) {
+                    eprintln!("Error exporting: {}", e);
+                    process::exit(1);
+                }
             } else if let Some(issue) = args.issue {
                 println!(
                     "Exporting issue {} to {} as {}",
@@ -169,7 +174,10 @@ async fn main() {
                     &options.output_folder.display(),
                     format!("{:?}", args.format).to_lowercase()
                 );
-                exporter.export(issue.into(), &options).ok();
+                if let Err(e) = exporter.export(issue.into(), &options) {
+                    eprintln!("Error exporting: {}", e);
+                    process::exit(1);
+                }
             }
         }
     }
