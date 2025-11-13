@@ -2,6 +2,13 @@
 name = "phrack-issue-manager"
 version = "0.1.0"
 edition = "2024"
+description = "A command-line tool for managing and downloading Phrack magazine issues"
+license-file = "LICENSE"
+repository = "https://github.com/hasanen/phrack-issue-manager"
+homepage = "https://github.com/hasanen/phrack-issue-manager"
+documentation = "https://github.com/hasanen/phrack-issue-manager#readme"
+keywords = ["phrack", "cli", "downloader", "magazine", "epub"]
+categories = ["command-line-utilities"]
 
 [dependencies]
 clap = { version = "4.5.47", features = ["derive"] }
