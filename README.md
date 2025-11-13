@@ -132,5 +132,3 @@ For more details, see the [Conventional Commits documentation](https://www.conve
 ## TODO:
 
 - [ ] Implement commands in "Commands TBD"
-- [ ] Add GH Actions to check the build
-- [ ] Add GH action to publish build to crates.io
