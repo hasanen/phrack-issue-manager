@@ -44,7 +44,13 @@ pub trait Exporter {
             .map(|e| e.path())
             .collect();
 
-        articles.sort();
+        articles.sort_by_key(|path| {
+            path.file_stem()
+                .and_then(|s| s.to_str())
+                .and_then(|s| s.parse::<u32>().ok())
+                .unwrap_or(u32::MAX)
+        });
+
         Ok(articles)
     }
 }
