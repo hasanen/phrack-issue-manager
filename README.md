@@ -99,7 +99,7 @@ Purge existing downloads and re-download all issues:
 cargo run -- download-issue --all-issues --refresh
 ```
 
-Export single or all issues as one txt
+Export single or all issues as one txt file. Other supported formats are `pdf` or `epub`.
 
 ```sh
 cargo run -- export-issue --issue 1 --format txt --output-path ./path # generates single .txt of all articles
