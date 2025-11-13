@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Download single or all issues
 - See current configuration items
+- Export issues as txt, epub and pdf
 
 ### Changed
 
@@ -21,3 +22,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 ### Security
+
+## [0.1.0] - 2025-11-13
+
+### Added
+
+- Download single or all issues
+- See current configuration items
+- Export issues as txt, epub and pdf
