@@ -1,9 +1,9 @@
 [package]
 name = "phrack-issue-manager"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "A command-line tool for managing and downloading Phrack magazine issues"
-license-file = "LICENSE"
+license = "MIT"
 repository = "https://github.com/hasanen/phrack-issue-manager"
 homepage = "https://github.com/hasanen/phrack-issue-manager"
 documentation = "https://github.com/hasanen/phrack-issue-manager#readme"
