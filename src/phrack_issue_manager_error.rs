@@ -16,4 +16,6 @@ pub enum PhrackIssueManagerError {
     TomlDe(#[from] toml::de::Error),
     #[error("PDF generation error: {0}")]
     GenPdf(#[from] genpdf::error::Error),
+    #[error("EPUB generation error: {0}")]
+    EpubGeneration(String),
 }

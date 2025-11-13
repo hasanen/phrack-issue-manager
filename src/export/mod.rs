@@ -3,6 +3,7 @@ use enum_iterator::Sequence;
 use std::fs;
 use std::path::PathBuf;
 
+pub mod epub_export;
 pub mod pdf_export;
 pub mod txt_export;
 
@@ -16,6 +17,7 @@ pub enum ExportFormat {
     #[value(alias = "text")]
     TXT,
     PDF,
+    EPUB,
 }
 pub struct ExportOptions {
     // Output folder for the exported file

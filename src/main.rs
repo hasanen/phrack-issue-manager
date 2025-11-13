@@ -18,6 +18,7 @@ mod phrack_issue_manager_error;
 mod strict_string;
 use crate::config::{ConfigKey, load_config, save_config};
 use crate::downloader::Downloader;
+use crate::export::epub_export::EpubExporter;
 use crate::export::pdf_export::PDFExporter;
 use crate::export::txt_export::TxtExporter;
 use crate::export::{ExportFormat, ExportOptions, Exporter};
@@ -155,6 +156,7 @@ async fn main() {
             let exporter: Box<dyn Exporter> = match args.format {
                 ExportFormat::TXT => Box::new(TxtExporter),
                 ExportFormat::PDF => Box::new(PDFExporter),
+                ExportFormat::EPUB => Box::new(EpubExporter),
             };
 
             if args.all_issues {
