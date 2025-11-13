@@ -2,6 +2,14 @@
 
 A command-line tool for managing and downloading Phrack magazine issues.
 
+## Installation & usage
+
+```bash
+cargo install phrack-issue-manager
+
+phrack-issue-manager --help
+```
+
 ## How to Contribute
 
 Contributions are welcome! To contribute:
