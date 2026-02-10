@@ -5,6 +5,8 @@ on:
             - "v*"
 
 name: Publish
+permissions:
+    contents: read
 
 jobs:
     publish:
